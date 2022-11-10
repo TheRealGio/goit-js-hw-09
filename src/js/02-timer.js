@@ -17,7 +17,6 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
     dateValidation(selectedDates[0]);
   },
 };
@@ -56,12 +55,12 @@ function addLeadingZero(value) {
 
 function countDown() {
   timer = setInterval(() => {
-    startButton.disabled = 0;
+    startButton.disabled = true;
+    chosenDate.disabled = true;
     const timeOfDateChosen = new Date(
       chosenDate.value.replace(/-/g, '/')
     ).getTime();
     const timeLeft = timeOfDateChosen - Date.now();
-    console.log(convertMs(timeLeft));
 
     const timerValues = convertMs(timeLeft);
 
